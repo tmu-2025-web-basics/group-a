@@ -64,12 +64,12 @@ body {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s ease;
   text-decoration: none;
-  width: 80px;           /* ← 横幅を狭く */
-  height: 100px;         /* ← 高さを広げる */
-  writing-mode: vertical-rl; /* ← 縦書きにする */
+  width: 80px;           
+  height: 100px;         
+  writing-mode: vertical-rl; 
   text-align: center;
   font-size: 16px;
-  padding: 12px 0;       /* ← 上下に余白を少しだけ */
+  padding: 12px 0;      
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,9 +81,9 @@ body {
 
 .category-nav {
   display: flex;
-  gap: 12px; /* ← 間隔を狭く */
-  justify-content: flex-end; /* ← 右寄せ */
-  background: none; /* ← 背景を消す */
+  gap: 12px; 
+  justify-content: flex-end; 
+  background: none; 
   padding: 0;
   margin: 0;
 }
