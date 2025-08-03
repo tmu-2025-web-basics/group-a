@@ -1,0 +1,58 @@
+const conveyor = document.getElementById('conveyor');
+const plates = Array.from(conveyor.children);
+const plateCount = 20;
+
+// カラフルな寿司皿の色（縁取りに使う）
+const rimColors = ['#FF6B6B', '#FFD93D', '#6BCB77', '#4D96FF', '#C77DFF', '#FF9F1C'];
+
+for (let i = 0; i < plateCount; i++) {
+  plates.forEach(plate => {
+    const clone = plate.cloneNode(true);
+    // ランダムな縁色を設定
+    clone.style.borderColor = rimColors[Math.floor(Math.random() * rimColors.length)];
+    conveyor.appendChild(clone);
+  });
+}
+
+
+let x = 0;
+let paused = false;
+
+function animate() {
+  if (!paused) {
+    x -= 1.5;
+    if (x <= -conveyor.scrollWidth / 2) {
+      x = 0;
+    }
+    conveyor.style.transform = `translateX(${x}px)`;
+  }
+  requestAnimationFrame(animate);
+}
+animate();
+
+
+const wrapper = document.querySelector('.conveyor-wrapper');
+wrapper.addEventListener('mouseenter', () => paused = true);
+wrapper.addEventListener('mouseleave', () => paused = false);
+
+
+animate();
+
+const hamburger = document.querySelector('.hamburger-menu');
+const navMenu = document.querySelector('.nav-menu');
+const navLinks = navMenu.querySelectorAll('a');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+
+  if (navMenu.classList.contains('active')) {
+    navLinks.forEach((link, i) => {
+      setTimeout(() => {
+        link.classList.add('show');
+      }, i * 100);
+    });
+  } else {
+    navLinks.forEach(link => link.classList.remove('show'));
+  }
+});
