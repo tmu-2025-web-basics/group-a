@@ -81,9 +81,10 @@ body {
 
 .category-nav {
   display: flex;
-  gap: 12px; /* ← 間隔を狭く */
-  justify-content: flex-end; /* ← 右寄せ */
-  background: none; /* ← 背景を消す */
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;  
+  background: none;
   padding: 0;
   margin: 0;
 }
@@ -94,11 +95,7 @@ body {
   border: none;
   padding: 0;
   cursor: pointer;
-  appearance: none;       /* ← ブラウザのボタンスタイル無効化 */
-  -webkit-appearance: none;
-  -moz-appearance: none;
 }
-
 .btn-icon {
   width: 90px;
   height: 90px;
